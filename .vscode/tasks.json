@@ -1,0 +1,81 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "command": "docker build -t plexinc/pms-docker:latest -f Dockerfile .",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "group": "building"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Login",
+            "command": "docker login uk-cardiff-1.ocir.io --username ax39baacthsg/ocir",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true,
+                "group": "Login"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Tag",
+            "command": "docker tag plexinc/pms-docker:latest uk-cardiff-1.ocir.io/ax39baacthsg/plexinc/pms-docker:latest",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "group": "building"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Push",
+            "command": "docker push uk-cardiff-1.ocir.io/ax39baacthsg/plexinc/pms-docker:latest",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "group": "building"
+            },
+            "group": "build"
+        }
+    ]
+}
